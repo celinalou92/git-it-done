@@ -1,18 +1,23 @@
 var issueContainerEl = document.querySelector("#issues-container");
 var limitWarningEl = document.querySelector("#limit-warning");
-var queryString = document.location.search
+var queryString = document.location.search;
 var repoNameEl = document.querySelector("#repo-name");
+
+
 
 var getRepoName = function(){
     var queryString = document.location.search;
-    var repoName = queryString.split("=")[1];
+    repoName = queryString.split("=")[1];
+    console.log(repoName)
     getRepoIssues(repoName);
     repoNameEl.textContent = repoName;
 }
 
-var getRepoIssues = function(repo) {
+
+
+var getRepoIssues = function() {
     // format the github api url
-    var apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc";
+    var apiUrl = "https://api.github.com/repos/" + repoName + "/issues?direction=asc";
   
     // make a get request to url
     fetch(apiUrl).then(function(response) {
@@ -23,7 +28,7 @@ var getRepoIssues = function(repo) {
   
           // check if api has paginated issues
           if (response.headers.get("Link")) {
-            displayWarning(repo);
+            displayWarning(repoName);
           }
         });
       }
@@ -85,5 +90,5 @@ var displayWarning = function(repo) {
 };
 
 
-getRepoName()
-getRepoIssues()
+getRepoName();
+getRepoIssues();

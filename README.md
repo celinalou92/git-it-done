@@ -2,6 +2,8 @@
   # Git It Done [![Generic badge](https://img.shields.io/badge/License-GPL3.0-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)
   ## Description 
   An app that will search github by username or topic and return a list of repositories and how many open issues it has. When a repository is selected a new page will open that will list the issues for the selected repository
+  ![Git-It-Done](git-it-done_screengrab.png)
+
 
   ## Tables of Contents
   * [Installation](#installation)
